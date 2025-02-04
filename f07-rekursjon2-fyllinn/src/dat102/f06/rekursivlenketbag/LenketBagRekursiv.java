@@ -54,8 +54,22 @@ public class LenketBagRekursiv<T> implements BagADT<T> {
 	 */
 	@Override
 	public int getFrequencyOf(T entry) {
-		//TODO
-		return -1;
+		return getFrequencyOf(entry,forste);
+	}
+	
+	private int getFrequencyOf(T entry, Node denne) {
+
+		if (denne == null) {
+			return 0;
+		}
+		int antall = getFrequencyOf(entry, denne.neste);
+
+		if (denne.data.equals(entry)) {
+			antall++;
+		}
+
+		return antall;
+
 	}
 	
 	/*
