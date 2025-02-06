@@ -16,9 +16,23 @@ public class AntallStiar {
 	}
 	
 	static int antallStiar(int startX, int startY, int sluttX, int sluttY) {
-		//TODO
-		return 0;
+		
+		//Basistilfelle
+		if(startX == sluttX || startY == sluttY) {
+			return 1;
+
+		} 
+		//Ellers
+		//Kan gå til høyre eller ned.
+		//Antall stier = # hvis høyre + # hvis ned 
+		return antallStiar(startX+1, startY, sluttX, sluttY)
+		       + antallStiar(startX+1, startY, sluttX, sluttY);
+
+		}
+
+	
+
 	}
 
 
-}
+

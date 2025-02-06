@@ -1,4 +1,4 @@
-package dat102.f07.labyrint;
+ package dat102.f07.labyrint;
 
 public class Labyrint {
 	
