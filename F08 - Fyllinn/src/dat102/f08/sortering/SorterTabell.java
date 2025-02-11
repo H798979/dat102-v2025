@@ -46,11 +46,20 @@ public class SorterTabell {
 		sorterVedInnsetting(a, 0, a.length - 1);
 	}
 
-	public static <T extends Comparable<? super T>> void sorterVedInnsetting(T[] a, 
-			int forste, int siste) {
-		/*
-		 * Fyll inn
-		 */
-		
+    // fra og med forste, til og med siste 
+	public static <T extends Comparable<? super T>> void sorterVedInnsetting(T[] a, int forste, int siste) {
+		for(int i = forste + 1; i <= siste; i++) {
+			T temp = a[i];
+			int fra = i - 1; 
+
+			//finn rett plass
+			while (fra >= forste && temp.compareTo(a[fra]) < 0){
+				a[fra + 1] = a[fra];
+				fra--;
+			}
+
+			a[fra + 1] = temp;
+		}
 	}
 }
+
