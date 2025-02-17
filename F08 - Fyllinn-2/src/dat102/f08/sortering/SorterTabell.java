@@ -21,10 +21,22 @@ public class SorterTabell {
 		flettesortering(a, tempArray, first, last);
 	}
 
-	private static <T extends Comparable<? super T>> void 
-	    flettesortering(T[] a, T[] tempTab, int forste, int siste) {
+	private static <T extends Comparable<? super T>> void flettesortering(T[] a, T[] tempTab, int forste, int siste) {
 		
-		// Fyll inn
+		if(forste >= siste) { //alt. ==
+			// basis: gjør ingenting 
+		} else {
+			int midpkt = (forste + siste) / 2; 
+			flettesortering(a, tempTab, forste, midpkt);
+			flettesortering(a, tempTab, midpkt + 1, siste);
+			flett(a, tempTab, forste, midpkt, siste);
+		}
+
+		//alt
+		  //if (forste < siste) {
+		  //...
+		  // I så fall er viser ikke basistilfellet i koden
+		  //}
 		
 	}
 
