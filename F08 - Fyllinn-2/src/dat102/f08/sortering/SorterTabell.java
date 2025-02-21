@@ -81,6 +81,13 @@ public class SorterTabell {
 		}
 	}
 
+
+
+
+
+
+	
+
 	public static <T extends Comparable<? super T>> void kvikksorter(T[] a) {
 		kvikksorter(a, 0, a.length);
 		sorterVedInnsetting(a);
@@ -90,8 +97,11 @@ public class SorterTabell {
 
 	public static <T extends Comparable<? super T>> void kvikksorter(T[] a, int forste, int siste) {
 
-		// fyll inn
-		
+		if (siste - forste + 1 > MIN_GRENSE) {
+			int pivotIndex = partition(a, forste, siste);
+			kvikksorter(a, forste, pivotIndex - 1);
+			kvikksorter(a, pivotIndex + 1, siste);
+		}
 	}
 
 	private static <T extends Comparable<? super T>> int partition(T[] a, int forste, int siste) {
@@ -101,7 +111,7 @@ public class SorterTabell {
 		// kvarandre
 		sortFirstMiddleLast(a, forste, midten, siste);
 
-		// Flyttar pivot til nest siste plass
+		// Flyttar pivot til nest siste plasf
 		swap(a, midten, siste - 1);
 		int pivotIndex = siste - 1;
 		T pivotValue = a[pivotIndex];

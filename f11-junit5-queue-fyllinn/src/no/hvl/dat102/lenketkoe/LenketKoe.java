@@ -29,28 +29,45 @@ public final class LenketKoe<T> implements KoeADT<T> {
 	}
 /* -------------------------------------------------------------- */
 	
-	private Node fremsteNode; 	// References node at front of queue
-	private Node bakersteNode;  // References node at back of queue
+	private Node front;	// References node at front of queue
+	private Node back;  // References node at back of queue
 
 	public LenketKoe() {
-		//TODO
+		front = null;
+		back = null;
 	}
 
 	@Override
 	public void enqueue(T newEntry) {
-		//TODO
+		Node nyNode = new Node(newEntry);
+		if(isEmpty()) {
+			front = nyNode; 
+			back = nyNode;
+		} else {
+			back.neste = nyNode;
+		}
+		back = nyNode;
 	}
 
 	@Override
 	public T getFront() {
-		//TODO
-		return null;
+		if (isEmpty()) {
+			throw new EmptyQueueException();
+		}
+		return front.data;
 	}
 
 	@Override
 	public T dequeue() {
-		//TODO
-		return null;
+		if(isEmpty()) {
+			throw new EmptyQueueException();
+		}
+		T data = front.data;
+		front = front.neste;
+		if (front == null) {
+			back = null;
+		}
+		return data;
 	}
 
 	@Override
