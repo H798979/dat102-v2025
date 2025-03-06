@@ -7,7 +7,7 @@ public class IterableBagMain {
 	public static void main(String[] args) {
 		
 //		IterableBagADT<String> bag = new IterableTabellBag<>();
-//		IterableBagADT<String> bag = new IterableLenketBag<>();
+		IterableBagADT<String> bag = new IterableLenketBag<>();
 //		
 //		System.out.println("Tom bag ...");
 //		Iterator<String> iterator = bag.iterator();

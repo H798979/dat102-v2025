@@ -1,11 +1,32 @@
 package no.hvl.dat102.iterablebag_alt1;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class IterableLenketBag<T> implements IterableBagADT<T> {
 	
 	/* ------------------------------------------------------------------- */
 
+	private class LenketBagIterator implements Iterator <T> {
+
+		private Node nesteNode = forste;
+
+		
+		@Override
+		public boolean hasNext(){
+			return nesteNode != null;
+	}
+
+		@Override
+		public T next(){
+			if(hasNext()){
+				throw new NoSuchElementException();
+			}
+			T temp = nesteNode.data;
+			nesteNode = nesteNode.neste;
+			return temp;
+	}
+	
 	
 	/* ------------------------------------------------------------------- */
 

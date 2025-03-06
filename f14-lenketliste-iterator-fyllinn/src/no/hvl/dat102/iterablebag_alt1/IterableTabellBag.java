@@ -2,6 +2,7 @@ package no.hvl.dat102.iterablebag_alt1;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * En implementasjon av BagADT
@@ -12,12 +13,29 @@ public class IterableTabellBag<T> implements IterableBagADT<T> {
 	
 	/* ------------------------------------------------------------------- */
 
+	private class TabellbagIterator implements Iterator<T> {
+
+		private int nesteIndeks = 0;
+		
+		@Override
+		public boolean hasNext(){
+			return nesteIndeks < antall;
+			
+	}
+
+	@Override
+	public T next(){
+		if (!hasNext()){
+			throw new NoSuchElementException("...");
+		}
+		return tabell[nesteIndeks++];
+	}
 	
 	/* ------------------------------------------------------------------- */
 	
 	@Override
 	public Iterator<T> getIterator() {
-		return null;
+		return TabellbagIterator();
 	}
 	
 	/* ------------------------------------------------------------------- */
@@ -153,4 +171,5 @@ public class IterableTabellBag<T> implements IterableBagADT<T> {
 
 	/************************************************************/
 
+}
 }
