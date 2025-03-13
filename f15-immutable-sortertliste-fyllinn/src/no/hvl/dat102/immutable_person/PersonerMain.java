@@ -41,42 +41,42 @@ public class PersonerMain {
 		p0.fodselsaar = 1980;
 		System.out.println(p0);
 		
-		// Problem: Enkelt å mutere p0 siden objektvariabler er public
-		// Fiks1  : Gjøre objektvariabler private
+		Problem: Enkelt å mutere p0 siden objektvariabler er public
+		Fiks1  : Gjøre objektvariabler private
 		
 		
-//		Person1 p1 = new Person1(atlePatle, 2000);
-//		p1.setNavn(perViskeler);
-//		p1.setFodselsaar(1990);
-//		System.out.println(p1);
+		Person1 p1 = new Person1(atlePatle, 2000);
+		p1.setNavn(perViskeler);
+		p1.setFodselsaar(1990);
+		System.out.println(p1);
 		
-		// Problem: Enkelt å mutere p1 siden vi har set-metoder
-		// Fiks2  : Fjerne set-metoder
-		// Fiks3+4: Merker også objektvariabler og klassen med final
-		//          for å hindre utilsiktet mutering internt i koden.
+		Problem: Enkelt å mutere p1 siden vi har set-metoder
+		Fiks2  : Fjerne set-metoder
+		Fiks3+4: Merker også objektvariabler og klassen med final
+		         for å hindre utilsiktet mutering internt i koden.
 		
 		
-//		Person4 p4 = new Person4(atlePatle, 2000);
-//		Navn p4SittNavn = p4.getNavn();
-//		p4SittNavn.setEtternavn("MutertPatle");
-//		System.out.println(p4);
+		Person4 p4 = new Person4(atlePatle, 2000);
+		Navn p4SittNavn = p4.getNavn();
+		p4SittNavn.setEtternavn("MutertPatle");
+		System.out.println(p4);
 		
-		// Problem: Navn er muterbart, så p4.getNavn() gir mulighet til å endre innhold i navn
-		// Fiks   : Returnere en kopi/klone (alternativt gjøre Navn ikke-muterbar)
+		Problem: Navn er muterbart, så p4.getNavn() gir mulighet til å endre innhold i navn
+		Fiks   : Returnere en kopi/klone (alternativt gjøre Navn ikke-muterbar)
 
 		
-//		Person5 p5 = new Person5(perViskeler, 2000);
-//		perViskeler.setEtternavn("MutertViskeler");
-//		System.out.println(p5);
+		Person5 p5 = new Person5(perViskeler, 2000);
+		perViskeler.setEtternavn("MutertViskeler");
+		System.out.println(p5);
 		
-		// Problem: Navn er muterbart, så navn-parameteren til new Person5(..) kan endres etterpå. 
-		// Fiks   : GKonstruere med en kopi/klone (alternativt gjøre Navn ikke-muterbar)
+		Problem: Navn er muterbart, så navn-parameteren til new Person5(..) kan endres etterpå. 
+		Fiks   : GKonstruere med en kopi/klone (alternativt gjøre Navn ikke-muterbar)
 		
 		System.out.println("Ikke muterbar:");
 		
-//		Person6 p6 = new Person6(madamFelle, 2000);
-//		madamFelle.setFornavn("MutertMadam");
-//		System.out.println(p6);
+		Person6 p6 = new Person6(madamFelle, 2000);
+		madamFelle.setFornavn("MutertMadam");
+		System.out.println(p6);
 	}
 
 }
