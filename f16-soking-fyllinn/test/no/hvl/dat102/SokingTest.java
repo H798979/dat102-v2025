@@ -26,9 +26,53 @@ class SokingTest {
 	//TODO Vi må jo skrive tester for å sjekke at det vi lager virker !!
 	
 	
+	//sokUsortertTabell
+	@Test
+	void sokUsortertTabell() {
+		assertTrue(Soking.sokUsortertTabell(usortertTabell, 2));
+		assertTrue(Soking.sokUsortertTabell(usortertTabell, 0));
+		assertTrue(Soking.sokUsortertTabell(usortertTabell, 6));
+
+		assertFalse(Soking.sokUsortertTabell(usortertTabell, 5));
+
+		assertFalse(Soking.sokUsortertTabell(tomTabell, 1));
+	}
 	
-	
-	
+	@Test
+	void sokUsortertLenke() {
+		assertTrue(Soking.sokUsortertLenke(usortertLenke, 2));
+		assertTrue(Soking.sokUsortertLenkel(usortertLenke, 0));
+		assertTrue(Soking.sokUsortertLenke(usortertLenke, 6));
+
+		assertFalse(Soking.sokUsortertLenke(usortertLenke, 5));
+
+		assertFalse(Soking.sokUsortertLenke(tomLenke, 1));
+	}
+
+	@Test
+	void sekvensieltSokSortertTabell() {
+		assertTrue(Soking.sekvensieltSokSortertTabell(sortertTabell, 0));
+		assertTrue(Soking.sekvensieltSokSortertTabell(sortertTabell, 4));
+		assertTrue(Soking.sekvensieltSokSortertTabell(sortertTabell, 8));
+		
+		assertFalse(Soking.sekvensieltSokSortertTabell(sortertTabell, -1));
+		assertFalse(Soking.sekvensieltSokSortertTabell(sortertTabell, 5));
+		assertFalse(Soking.sekvensieltSokSortertTabell(sortertTabell, 9));
+		assertFalse(Soking.sekvensieltSokSortertTabell(tomTabell, 9));
+	}
+
+
+	@Test
+	void binaerSokSortertTabell() {
+		assertTrue(Soking.binaerSokSortertTabell(sortertTabell, 0));
+		assertTrue(Soking.binaerSokSortertTabell(sortertTabell, 4));
+		assertTrue(Soking.binaerSokSortertTabell(sortertTabell, 8));
+		
+		assertFalse(Soking.binaerSokSortertTabell(sortertTabell, -1));
+		assertFalse(Soking.binaerSokSortertTabell(sortertTabell, 5));
+		assertFalse(Soking.binaerSokSortertTabell(sortertTabell, 9));
+		assertFalse(Soking.binaerSokSortertTabell(tomTabell, 9));
+	}
 	/* --------------------------------------------------------------- */
 	
 	/* Hjelpemetode for å lage lenke med verdier.
